@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign In — LibryKyle</title>
+<title>Member Sign In — LibryKyle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -43,14 +43,14 @@
   .left-panel::before {
     content: ''; position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(42,157,143,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(42,157,143,0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
   .left-panel::after {
     content: ''; position: absolute; bottom: -10%; right: -10%;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(42,157,143,0.09) 0%, transparent 65%);
     pointer-events: none;
   }
   .left-content { position: relative; z-index: 1; }
@@ -68,87 +68,109 @@
   }
   .brand-name span { color: var(--gold); }
 
+  /* Member badge on left panel */
+  .member-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(42,157,143,0.12);
+    border: 1px solid var(--tborder);
+    color: var(--teal2); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 24px; width: fit-content;
+  }
+  .member-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--teal2); border-radius: 50%;
+  }
+
   .left-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 54px; font-weight: 700;
+    font-size: 50px; font-weight: 700;
     line-height: 1.1; color: var(--text); margin-bottom: 24px;
   }
-  .left-headline em { font-style: italic; color: var(--gold); }
+  .left-headline em { font-style: italic; color: var(--teal2); }
   .left-sub {
     font-size: 15px; font-weight: 300; color: var(--text2);
-    line-height: 1.7; max-width: 420px; margin-bottom: 52px;
+    line-height: 1.7; max-width: 420px; margin-bottom: 48px;
   }
 
-  .feature-list { display: flex; flex-direction: column; gap: 14px; }
-  .feature-item {
+  .member-perks { display: flex; flex-direction: column; gap: 14px; }
+  .perk-item {
     display: flex; align-items: center; gap: 14px;
     font-size: 14px; color: var(--text2);
-    text-decoration: none; transition: color 0.2s;
   }
-  .feature-item:hover { color: var(--text); }
-  .feature-dot {
-    width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 6px; flex-shrink: 0;
+  .perk-dot {
+    width: 28px; height: 28px;
+    border: 1px solid var(--tborder); border-radius: 6px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    color: var(--gold); font-size: 12px; transition: background 0.2s;
+    color: var(--teal2); font-size: 12px;
   }
-  .feature-item:hover .feature-dot { background: rgba(201,168,76,0.1); }
 
-  /* Switch to member box */
+  /* Switch to admin link */
   .switch-box {
     margin-top: 40px; padding: 16px 18px;
-    background: rgba(42,157,143,0.06);
-    border: 1px solid var(--tborder); border-radius: 10px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--border); border-radius: 10px;
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
   }
   .switch-box-text { font-size: 13px; color: var(--text2); line-height: 1.4; }
   .switch-box-text strong { color: var(--text); display: block; font-size: 13px; margin-bottom: 2px; }
   .switch-btn {
     display: inline-flex; align-items: center; gap: 7px;
-    background: var(--teal); color: #fff;
+    background: var(--gold); color: var(--navy);
     font-size: 12px; font-weight: 600; padding: 8px 16px;
     border-radius: 6px; text-decoration: none; white-space: nowrap;
     transition: background 0.2s;
   }
-  .switch-btn:hover { background: var(--teal2); }
+  .switch-btn:hover { background: var(--gold2); }
 
   .left-footer { position: relative; z-index: 1; }
-  .left-footer-links { display: flex; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+  .left-footer-links { display: flex; gap: 20px; margin-bottom: 10px; }
   .left-footer-links a {
     font-size: 12px; color: var(--text3); text-decoration: none; transition: color 0.2s;
   }
-  .left-footer-links a:hover { color: var(--gold); }
+  .left-footer-links a:hover { color: var(--teal2); }
   .left-footer p { font-size: 12px; color: var(--text3); }
 
   /* ── RIGHT PANEL ── */
   .right-panel {
-    background: var(--navy2); position: relative;
+    background: var(--navy2);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     padding: 56px 48px;
-    overflow-y: auto;
   }
   .form-wrapper { width: 100%; max-width: 360px; }
+
+  /* Member accent top bar on right panel */
+  .right-panel-accent {
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--teal2));
+    position: absolute; top: 0; left: 0;
+    border-radius: 0 0 0 0;
+  }
+  .right-panel { position: relative; }
 
   .back-link {
     display: flex; align-items: center; gap: 8px;
     font-size: 13px; color: var(--text2); text-decoration: none;
     margin-bottom: 36px; transition: color 0.2s; width: fit-content;
   }
-  .back-link:hover { color: var(--gold); }
+  .back-link:hover { color: var(--teal2); }
 
   .form-header { margin-bottom: 32px; }
-  .role-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(201,168,76,0.1); border: 1px solid var(--border);
-    color: var(--gold); font-size: 11px; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 100px; margin-bottom: 14px;
-  }
   .form-header h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 32px; font-weight: 700; color: var(--text); margin-bottom: 6px;
   }
   .form-header p { font-size: 14px; color: var(--text2); }
+
+  .role-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(42,157,143,0.1); border: 1px solid var(--tborder);
+    color: var(--teal2); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px; margin-bottom: 14px;
+  }
 
   .alert-error {
     display: flex; align-items: center; gap: 10px;
@@ -173,7 +195,7 @@
     font-size: 14px; font-family: 'Outfit', sans-serif; transition: border-color 0.2s;
   }
   .form-control::placeholder { color: var(--text3); }
-  .form-control:focus { outline: none; border-color: var(--gold); }
+  .form-control:focus { outline: none; border-color: var(--teal); }
 
   .form-row {
     display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px;
@@ -183,74 +205,59 @@
     font-size: 13px; color: var(--text2); cursor: pointer;
   }
   .remember-label input[type="checkbox"] {
-    width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer;
+    width: 16px; height: 16px;
+    accent-color: var(--teal); cursor: pointer;
   }
   .forgot-link {
-    font-size: 13px; color: var(--gold); text-decoration: none; transition: color 0.2s;
+    font-size: 13px; color: var(--teal2); text-decoration: none; transition: color 0.2s;
   }
-  .forgot-link:hover { color: var(--gold2); }
+  .forgot-link:hover { color: var(--teal); }
 
   .btn-submit {
-    width: 100%; background: var(--gold); color: var(--navy); border: none;
+    width: 100%; background: var(--teal); color: #fff; border: none;
     padding: 13px 20px; border-radius: 8px;
     font-size: 14px; font-weight: 600; font-family: 'Outfit', sans-serif;
     cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
     transition: background 0.2s, transform 0.15s; letter-spacing: 0.04em;
   }
-  .btn-submit:hover { background: var(--gold2); transform: translateY(-1px); }
+  .btn-submit:hover { background: var(--teal2); transform: translateY(-1px); }
   .btn-submit:active { transform: translateY(0); }
 
-  /* ── CREDENTIALS CARD ── */
-  .creds-card {
-    margin-top: 22px; border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--border);
+  /* Demo box */
+  .demo-box {
+    margin-top: 24px; border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
   }
-  .creds-header {
+  .demo-box-header {
     background: rgba(201,168,76,0.08); padding: 10px 16px;
     display: flex; align-items: center; gap: 8px;
     font-size: 11px; font-weight: 600; color: var(--gold);
     letter-spacing: 0.1em; text-transform: uppercase;
   }
-  .creds-rows { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
-  .cred-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
-  .cred-label { display: flex; align-items: center; gap: 8px; color: var(--text2); }
-  .cred-label i { color: var(--text3); font-size: 12px; width: 14px; }
-  .cred-code {
+  .demo-rows { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+  .demo-row-label { display: flex; align-items: center; gap: 8px; color: var(--text2); }
+  .demo-row-label i { color: var(--text3); font-size: 12px; width: 14px; }
+  .demo-code {
     font-family: 'Outfit', monospace; background: var(--navy3);
     color: var(--gold2); padding: 3px 10px; border-radius: 5px;
     font-size: 12px; border: 1px solid var(--border);
   }
 
-  /* Separator between admin & member creds */
-  .creds-separator {
-    display: flex; align-items: center; gap: 10px;
-    padding: 4px 16px 0;
+  /* Member demo box — teal variant */
+  .demo-box.member-demo { border-color: var(--tborder); }
+  .demo-box.member-demo .demo-box-header {
+    background: rgba(42,157,143,0.08); color: var(--teal2);
   }
-  .sep-line { flex: 1; height: 1px; background: var(--border); }
-  .sep-label {
-    font-size: 10px; color: var(--text3);
-    letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
-  }
+  .demo-box.member-demo .demo-code { color: var(--teal2); border-color: var(--tborder); }
 
-  /* Member credentials — teal accent */
-  .creds-header.member { background: rgba(42,157,143,0.08); color: var(--teal2); }
-  .cred-code.member { color: var(--teal2); border-color: var(--tborder); }
-
-  /* Member portal link below creds */
-  .member-portal-link {
-    margin-top: 14px; padding: 12px 16px;
-    background: rgba(42,157,143,0.06); border-top: 1px solid var(--tborder);
-    display: flex; align-items: center; justify-content: space-between;
+  .demo-separator {
+    display: flex; align-items: center; gap: 10px; margin: 14px 0 0;
   }
-  .member-portal-link span { font-size: 12px; color: var(--text2); }
-  .member-portal-link a {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; color: var(--teal2); text-decoration: none; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .member-portal-link a:hover { color: var(--teal); }
+  .demo-sep-line { flex: 1; height: 1px; background: var(--border); }
+  .demo-sep-label { font-size: 10px; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; }
 
-  .form-footer { margin-top: 20px; text-align: center; font-size: 12px; color: var(--text3); }
+  .form-footer { margin-top: 24px; text-align: center; font-size: 12px; color: var(--text3); }
 
   @media (max-width: 860px) {
     body { grid-template-columns: 1fr; }
@@ -272,48 +279,42 @@
         </a>
       </div>
 
+      <div class="member-badge">Member Portal</div>
+
       <div class="left-headline">
-        Everything your<br>library needs,<br><em>in one place.</em>
+        Your reading<br>journey,<br><em>at a glance.</em>
       </div>
       <div class="left-sub">
-        A professional-grade management system built for libraries, schools, and institutions. Track books, manage members, and stay on top of every transaction.
+        Access your personal library account — view your active loans, check due dates, see your borrowing history, and monitor any outstanding fines.
       </div>
 
-      <div class="feature-list">
-        <a href="{{ route('books.index') }}" class="feature-item">
-          <div class="feature-dot"><i class="fas fa-book"></i></div>
-          Book catalog with real-time availability
-        </a>
-        <a href="{{ route('categories.index') }}" class="feature-item">
-          <div class="feature-dot"><i class="fas fa-tag"></i></div>
-          Category management for easy browsing
-        </a>
-        <a href="{{ route('members.index') }}" class="feature-item">
-          <div class="feature-dot"><i class="fas fa-users"></i></div>
-          Member registration and tracking
-        </a>
-        <a href="{{ route('loans.index') }}" class="feature-item">
-          <div class="feature-dot"><i class="fas fa-handshake"></i></div>
-          Borrowing, returns, and overdue marking
-        </a>
-        <a href="{{ route('fines.index') }}" class="feature-item">
-          <div class="feature-dot"><i class="fas fa-peso-sign"></i></div>
-          Fine management and payment tracking
-        </a>
-        <a href="{{ route('reports.index') }}" class="feature-item">
-          <div class="feature-dot"><i class="fas fa-file-pdf"></i></div>
-          PDF reports for books, loans, members &amp; fines
-        </a>
+      <div class="member-perks">
+        <div class="perk-item">
+          <div class="perk-dot"><i class="fas fa-book-open"></i></div>
+          View your active borrowed books
+        </div>
+        <div class="perk-item">
+          <div class="perk-dot"><i class="fas fa-calendar-check"></i></div>
+          Track due dates and avoid fines
+        </div>
+        <div class="perk-item">
+          <div class="perk-dot"><i class="fas fa-clock-rotate-left"></i></div>
+          Browse your full borrowing history
+        </div>
+        <div class="perk-item">
+          <div class="perk-dot"><i class="fas fa-peso-sign"></i></div>
+          Check and settle outstanding fines
+        </div>
       </div>
 
-      {{-- Switch to member portal --}}
+      {{-- Switch to admin --}}
       <div class="switch-box">
         <div class="switch-box-text">
-          <strong>Are you a library member?</strong>
-          Access your personal borrowing portal.
+          <strong>Are you a librarian?</strong>
+          Sign in to the admin panel instead.
         </div>
-        <a href="{{ route('member.login') }}" class="switch-btn">
-          <i class="fas fa-user"></i> Member Login
+        <a href="{{ route('login') }}" class="switch-btn">
+          <i class="fas fa-shield-halved"></i> Admin Login
         </a>
       </div>
 
@@ -323,8 +324,7 @@
       <div class="left-footer-links">
         <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('home') }}#features">Features</a>
-        <a href="{{ route('home') }}#modules">Modules</a>
-        <a href="{{ route('member.login') }}">Member Login</a>
+        <a href="{{ route('login') }}">Admin Login</a>
       </div>
       <p>&copy; {{ date('Y') }} LibryKyle. All rights reserved.</p>
     </div>
@@ -332,6 +332,7 @@
 
   {{-- ===== RIGHT PANEL ===== --}}
   <div class="right-panel">
+    <div class="right-panel-accent"></div>
     <div class="form-wrapper">
 
       <a href="{{ route('home') }}" class="back-link">
@@ -339,9 +340,9 @@
       </a>
 
       <div class="form-header">
-        <div class="role-tag"><i class="fas fa-shield-halved"></i> Admin Access</div>
-        <h2>Welcome back</h2>
-        <p>Sign in to your LibryKyle admin account</p>
+        <div class="role-tag"><i class="fas fa-user"></i> Member Access</div>
+        <h2>Member Sign In</h2>
+        <p>Access your personal library account</p>
       </div>
 
       @if($errors->any())
@@ -351,7 +352,7 @@
       </div>
       @endif
 
-      <form method="POST" action="{{ route('login') }}">
+      <form method="POST" action="{{ route('member.login.submit') }}">
         @csrf
 
         <div class="form-group">
@@ -359,7 +360,7 @@
           <div class="input-wrap">
             <i class="fas fa-envelope input-icon"></i>
             <input type="email" name="email" class="form-control"
-                   placeholder="admin@library.com"
+                   placeholder="your@email.com"
                    value="{{ old('email') }}" required autofocus>
           </div>
         </div>
@@ -383,56 +384,43 @@
 
         <button type="submit" class="btn-submit">
           <i class="fas fa-arrow-right-to-bracket"></i>
-          Sign In
+          Sign In as Member
         </button>
       </form>
 
-      {{-- Combined credentials card --}}
-      <div class="creds-card">
-
-        {{-- Admin demo credentials --}}
-        <div class="creds-header">
+      {{-- Admin Demo Credentials --}}
+      <div class="demo-box" style="margin-top:24px;">
+        <div class="demo-box-header">
           <i class="fas fa-circle-info"></i>
           Demo Credentials
         </div>
-        <div class="creds-rows">
-          <div class="cred-row">
-            <div class="cred-label"><i class="fas fa-envelope"></i> Email</div>
-            <div class="cred-code">admin@library.com</div>
+        <div class="demo-rows">
+          <div class="demo-row">
+            <div class="demo-row-label"><i class="fas fa-envelope"></i> Email</div>
+            <div class="demo-code">admin@library.com</div>
           </div>
-          <div class="cred-row">
-            <div class="cred-label"><i class="fas fa-lock"></i> Password</div>
-            <div class="cred-code">password</div>
-          </div>
-        </div>
-
-        {{-- Separator --}}
-        <div class="creds-separator">
-          <div class="sep-line"></div>
-          <div class="sep-label">Member Credentials</div>
-          <div class="sep-line"></div>
-        </div>
-
-        {{-- Member demo credentials --}}
-        <div class="creds-rows" style="padding-top:12px;">
-          <div class="cred-row">
-            <div class="cred-label"><i class="fas fa-envelope"></i> Email</div>
-            <div class="cred-code member">juan@student.edu</div>
-          </div>
-          <div class="cred-row">
-            <div class="cred-label"><i class="fas fa-lock"></i> Password</div>
-            <div class="cred-code member">member123</div>
+          <div class="demo-row">
+            <div class="demo-row-label"><i class="fas fa-lock"></i> Password</div>
+            <div class="demo-code">password</div>
           </div>
         </div>
 
-        {{-- Link to member portal --}}
-        <div class="member-portal-link">
-          <span>Member? Use a different portal.</span>
-          <a href="{{ route('member.login') }}">
-            <i class="fas fa-arrow-right"></i> Member Sign In
-          </a>
+        {{-- Member Credentials below --}}
+        <div class="demo-separator" style="padding: 0 16px;">
+          <div class="demo-sep-line"></div>
+          <div class="demo-sep-label">Member Credentials</div>
+          <div class="demo-sep-line"></div>
         </div>
-
+        <div class="demo-rows" style="padding-top:10px;">
+          <div class="demo-row">
+            <div class="demo-row-label"><i class="fas fa-envelope"></i> Email</div>
+            <div class="demo-code" style="color:var(--teal2); border-color:var(--tborder);">member1@example.com</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-row-label"><i class="fas fa-lock"></i> Password</div>
+            <div class="demo-code" style="color:var(--teal2); border-color:var(--tborder);">member123</div>
+          </div>
+        </div>
       </div>
 
       <div class="form-footer">

@@ -10,19 +10,12 @@ return new class extends Migration
     {
         Schema::table('members', function (Blueprint $table) {
 
-            // Add password column if it doesn't exist
             if (!Schema::hasColumn('members', 'password')) {
                 $table->string('password')->nullable()->after('email');
             }
 
-            // Add remember_token if it doesn't exist
             if (!Schema::hasColumn('members', 'remember_token')) {
-                $table->rememberToken()->after('password');
-            }
-
-            // Add soft deletes (deleted_at) if it doesn't exist
-            if (!Schema::hasColumn('members', 'deleted_at')) {
-                $table->softDeletes()->after('updated_at');
+                $table->string('remember_token', 100)->nullable()->after('password');
             }
 
         });
@@ -31,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->dropColumn(['password', 'remember_token', 'deleted_at']);
+            $table->dropColumn(['password', 'remember_token']);
         });
     }
 };
