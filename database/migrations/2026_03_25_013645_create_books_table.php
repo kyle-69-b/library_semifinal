@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
@@ -25,24 +22,14 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('cover_image')->nullable();
             $table->timestamps();
-
-            // Define foreign key constraint
+            
             $table->foreign('category_id')
                   ->references('id')
                   ->on('categories')
                   ->onDelete('cascade');
-
-            // Add indexes
-            $table->index('title');
-            $table->index('author');
-            $table->index('isbn');
-            $table->index('category_id');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('books');
