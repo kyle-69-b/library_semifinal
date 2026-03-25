@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('cover_image')->nullable();
             $table->timestamps();
-            
+
             $table->foreign('category_id')
                   ->references('id')
                   ->on('categories')

@@ -19,17 +19,17 @@ return new class extends Migration
             $table->enum('status', ['active', 'returned', 'overdue'])->default('active');
             $table->text('notes')->nullable();
             $table->timestamps();
-            
+
             $table->foreign('book_id')
                   ->references('id')
                   ->on('books')
                   ->onDelete('cascade');
-            
+
             $table->foreign('member_id')
                   ->references('id')
                   ->on('members')
                   ->onDelete('cascade');
-            
+
             $table->index('loan_number');
             $table->index('status');
         });
